@@ -1,0 +1,108 @@
+/* 🌐 Font */
+@font-face {
+  font-family: 'Verdana';
+  src: url('fonts/Verdana.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 🔧 General */
+body {
+  background-color: black;
+  background-image: url('background.gif');
+  background-repeat: repeat;
+  color: white;
+  font-family: 'Verdana', 'Trebuchet MS', 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔶 Topbar */
+.topbar {
+  background-color: orange;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  height: 45px;
+  max-width: 800px;
+  margin: 0 auto; /* ✅ centers horizontally */
+}
+
+.logo {
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  height: 50px;
+}
+
+/* 🌐 Layout Wrapper */
+.content-wrapper {
+  display: flex;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  align-content: center;
+}
+
+/* 📚 Sidebar */
+.sidebar {
+  background-color: #222;
+  width: 200px;
+  padding: 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* 📄 Main Content */
+.main-content {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* or whatever width you want */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: auto; /* keep content inside */
+}
+
+.comic_page {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+
+/* 🕯️ Footer */
+.footer {
+  background-color: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 10px;
+  border-top: 2px solid #444;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-frame {
+  align-content: center;
+  align-items: center
+}

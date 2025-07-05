@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jasper Academia Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-frame"> <!-- This is your central boxed layout -->
+
+    <div class="topbar">
+      <img src="images/logo.png" alt="Jasper Logo" class="logo">
+    </div>
+
+    <div class="content-wrapper">
+      <div id="sidebar-container"></div> <!-- Injected Sidebar -->
+
+      <div class="main-content">
+        <h2>Welcome to Jasper Academia Online</h2>
+        <p>Where nostalgia burns hot and the uncanny takes hold.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 1830–200X Jasper Academia Online. All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <script>
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('sidebar-container').innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>

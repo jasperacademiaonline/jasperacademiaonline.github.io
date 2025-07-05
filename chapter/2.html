@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jasper Academia Online</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <div class="page-frame"> <!-- Central boxed layout -->
+
+    <div class="topbar">
+      <img src="../images/logo.png" alt="Jasper Logo" class="logo">
+    </div>
+
+    <div class="content-wrapper">
+      <div id="sidebar-container"></div> <!-- Injected Sidebar -->
+
+      <div class="main-content" id="comic-container">
+        <li><a href="../read.html">Back</a></li>
+        <!-- Comic pages will be injected here -->
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>© 1830–200X Jasper Academia Online. All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <script>
+    // Inject Sidebar
+    fetch('sidebar.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('sidebar-container').innerHTML = data;
+      });
+
+    // Automatically load comic pages in order until a file fails
+  window.onload = function () {
+    const chapter = 2;
+    const container = document.getElementById('comic-container');
+    let page = 1;
+
+    function tryLoadPage() {
+      const img = new Image(); // Creates an image object, doesn't attach it yet
+      img.src = `../images/chapters/${chapter}/${page}.png`;
+      img.alt = `Chapter ${chapter}, Page ${page}`;
+      img.className = 'comic_page';
+
+      img.onload = () => {
+        container.appendChild(img);   // Only add to DOM if it actually loads
+        page++;
+        tryLoadPage();                // Recursively attempt the next image
+      };
+
+      img.onerror = () => {
+        console.log(`Finished loading at page ${page - 1}`);
+      };
+    }
+
+    tryLoadPage();
+  };
+</script>
+
+</body>
+</html>
